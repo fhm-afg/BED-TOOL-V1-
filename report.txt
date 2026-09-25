@@ -1,0 +1,43 @@
+bed                                    size        bed%   status
+------------------------------------------------------------------------------
+1 OAKLEY BED                            421x492    24.6%  ok
+10 AURORA BED                           294x252    13.6%  ok
+11 CHELSI BED                           279x274     7.0%  TOO SMALL
+12 MALWA BED                            271x232     8.6%  ok
+13 FLORIDA WINGBACK BED                 358x235    20.8%  ok
+14 VERONE WINGBACK BED                  234x301    13.5%  ok
+15 LUNAR ELEGANCE BED                   268x270    16.0%  ok
+16 OXFORD WINGBACK BED                  265x264    24.6%  ok
+17 NEW CASTLE BED                       223x277    30.3%  ok
+18 BARCELONA BED                        264x265     6.3%  TOO SMALL
+19 ZARKON GOLD TRIM BED                 292x208     2.8%  TOO SMALL
+2 BELLA BED                             370x276     2.2%  TOO SMALL
+20 TORNADO BED                          283x252    15.1%  ok
+21 DUBLIN BED                           238x235    23.7%  ok
+22 PARISIENNE ARCH BED                  382x279    12.4%  ok
+23 DIOR BED                             288x289    40.4%  ok
+24 PRESTIGE DIVAN BED                   274x277    39.9%  ok
+25 MILAN DIVAN BED                      292x259    17.3%  ok
+26 OTTAWA DIVAN BED                     279x238    13.5%  ok
+27 BERLIN DIVAN BED                     267x229    23.8%  ok
+28 ROME DIVAN BED                       286x246    28.9%  ok
+29 WARSAW DIVAN BED                     280x280    30.7%  ok
+3 LIANA BED                             367x363     8.7%  ok
+30 LAUSANNE DIVAN BED                   259x259    14.1%  ok
+31 OSLO DIVAN BED                       253x211    19.2%  ok
+32 OXFORD WINGBACK OTTOMAN DIVAN        297x298    20.5%  ok
+33 OPULENT PANEL BED                    274x277    21.3%  ok
+34 TOKYO OTOOMAN BED                    267x268     0.0%  TOO SMALL
+35 TORNADO WING PANEL BED               249x250    15.5%  ok
+36 BRAVO PANEL BED                      292x246    19.7%  ok
+37 VALENTINO LINEAR BED                 367x256    23.7%  ok
+38 RIVERIA OTTOMAN BED                  289x289    25.2%  ok
+39 MARINA BED                           292x226     6.4%  TOO SMALL
+4 SAVOY BED                             268x267     4.3%  TOO SMALL
+5 ASCOT LUXURY BED                      327x243    13.7%  ok
+6 BELGRAVIA BED                         267x268     0.5%  TOO SMALL
+7 CHICAGO BED                           292x247     5.3%  TOO SMALL
+8 BUCKINGHAM LUXE                       265x264    18.7%  ok
+9 OPULENCE WING BED                     289x295    15.7%  ok
+
+39 beds, 9 flagged for a look

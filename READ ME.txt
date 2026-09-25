@@ -1,0 +1,143 @@
+BED COLOUR TOOL
+===============
+
+Double-click "OPEN BED TOOL.bat".
+
+It opens already pointing at your Beds Stock Images, your Colours folders, and
+the starter masks. Nothing to set up.
+
+
+USING IT
+--------
+
+  1. Click a bed on the LEFT.
+     If a starter mask exists it loads automatically, shown in pink.
+
+  2. Get the pink covering ONLY the upholstery.
+
+     The starter mask covers the WHOLE bed, frame and bedding together. So
+     the job is nearly always: take the bedding back out.
+
+     Wand (w)     RIGHT-DRAG across the duvet and pillows. Each drag removes
+                  whole regions at a time. Four drags is typical.
+                  Left-drag puts a region back.
+     Regions      Shows you what the wand sees -- every colour is one click.
+                  Worth a look the first time.
+     Wand detail  How finely it cuts. HIGHER = smaller, safer regions.
+                  Turn it UP if a drag takes too much; DOWN if you are
+                  making too many small drags. 12 is a good start.
+     Brush (b)    Paint by hand. Eraser (e) or right mouse.
+     Size         Slider, or [ and ] keys.
+     Undo         Ctrl+Z
+
+     The wand cuts along edges, not colours. That matters on your cream beds:
+     the frame and the bedding are near enough the same colour (166 against
+     169 brightness) that nothing colour-based can separate them, but the
+     seam between them is still a real edge, and the wand stops there.
+
+  3. Save mask (Ctrl+S) when it looks right.
+     It reloads automatically next time you open that bed, and the batch
+     renderer uses it too. Saved into "Beds Stock Images\_masks".
+
+  4. Click a colour on the RIGHT. The bed recolours instantly.
+     Click through the colours freely -- the mask stays put.
+
+  5. Save.
+     Save this colour   - just the one on screen
+     Save whole fabric  - all 12 / 9 / 11 / 17 of that fabric
+     Save every colour  - all 49
+
+     Everything lands in "Beds Stock Images\_recoloured".
+
+  THE THREE SLIDERS (all apply to saves, not just the preview)
+
+    Brightness    - nudge if a colour comes out heavier or lighter than the
+                    real fabric.
+    Texture       - how much of the fabric's own grain to show.
+                    0 = flat colour, 1 = normal, 2 = exaggerated.
+    Texture size  - how large the grain is. Smaller number = finer.
+                    Around 260 suits the velvets; marble likes 350-450 so
+                    the veining does not look like sandpaper.
+
+
+WHY IT LOOKS RIGHT
+------------------
+
+  It keeps the photograph's own light and shade -- the channel tufting, the
+  folds, the shadow under the rail -- and swaps only the colour underneath.
+
+  The colour comes from the median of your swatch photo, not the average,
+  so the softbox highlight across your swatches does not skew the result.
+
+  The grain comes from the swatch too. Your swatches are close-ups of draped
+  fabric, so they carry the photographer's lighting as well as the weave.
+  The tool strips out anything that varies slowly (that is the lighting) and
+  keeps what varies over a few pixels (that is the fabric), then lets the
+  bed's own shading do the lighting instead.
+
+  These photos are small, so at full size the grain is deliberately subtle.
+  Push the Texture slider past 1 if you want it more obvious.
+
+
+DOING A LOT AT ONCE
+-------------------
+
+  Once a bed's mask is right, save the whole fabric or all 49 in one click.
+  49 colours takes about 4 seconds.
+
+  "RENDER EVERYTHING.bat" does every bed that has a mask, in every colour,
+  without opening the window. It prints which beds it skipped and why.
+
+
+ABOUT THE STARTER MASKS
+-----------------------
+
+  In "_AUTO MASKS\regions". Rough quality varies:
+
+    Good, minor tidying (about 20):
+      1 OAKLEY, 8 BUCKINGHAM, 9 OPULENCE WING, 13 FLORIDA, 16 OXFORD WINGBACK,
+      17 NEW CASTLE, 21 DUBLIN, 22 PARISIENNE, 23 DIOR, 24 PRESTIGE,
+      28 ROME, 29 WARSAW, 30 LAUSANNE, 31 OSLO, 32 OXFORD OTTOMAN,
+      33 OPULENT PANEL, 35 TORNADO WING, 36 BRAVO, 37 VALENTINO, 38 RIVERIA
+
+    Partial, a section missing (about 10):
+      3 LIANA, 5 ASCOT, 10 AURORA, 12 MALWA, 14 VERONE, 15 LUNAR,
+      20 TORNADO, 25 MILAN, 26 OTTAWA, 27 BERLIN
+
+    Start from scratch (9):
+      2 BELLA, 4 SAVOY, 6 BELGRAVIA, 7 CHICAGO, 11 CHELSI, 18 BARCELONA,
+      19 ZARKON, 34 TOKYO, 39 MARINA
+      For these, press "Clear" and brush the upholstery yourself.
+
+  Masks ARE saved now -- press Ctrl+S and that bed reopens with your mask.
+  "RENDER EVERYTHING.bat" prefers your saved masks over the rough auto ones,
+  so the usual routine is: fix a few beds' masks, save each, then let the
+  batch do the rest.
+
+
+IF SOMETHING BREAKS
+-------------------
+
+  "python is not recognised"
+      Install Python from python.org, tick "Add python.exe to PATH".
+
+  "No module named cv2" / "PIL" / "numpy"
+      Run:  pip install numpy opencv-python Pillow
+
+  A bed opens with no starter mask
+      Normal for some. Just brush it.
+
+  Nothing happens when clicking Save
+      You need both a mask and a colour selected.
+
+
+RESOLUTION, WORTH KNOWING
+-------------------------
+
+  These stock photos are 223x277 to 421x492 pixels. Output matches the input,
+  so it is good for grid cells around 300px -- the size your existing Liana
+  and Savoy grids use -- but not for a large hero shot.
+
+  For full-size images, make one high-resolution render per bed first, put it
+  in a folder, and point the tool at that folder instead. Every colour then
+  comes off one identical source, which is what keeps a grid consistent.

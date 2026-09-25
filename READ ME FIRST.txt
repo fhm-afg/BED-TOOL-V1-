@@ -1,0 +1,91 @@
+STARTER MASKS FOR THE 39 BED STOCK IMAGES
+=========================================
+
+WHAT THIS IS
+
+  regions/            39 PNG region maps, one per bed, same pixel size as the
+                      stock photo it came from.
+  review/             the same masks painted pink over the photo, so you can
+                      see what was captured. Start with review/_contact.jpg,
+                      which shows all 39 at once.
+  report.txt          per-bed size and coverage figures.
+
+  These are a STARTING POINT, not finished masks. Read the next two sections
+  before opening anything.
+
+
+WHAT THE RED AREA MEANS
+
+  Red (#ff0000) = "this is bed". It covers the frame AND the bedding together.
+
+  It could not be split automatically. On these images the cream upholstery
+  and the white bedding measure almost the same brightness -- 166 against 169
+  on a 0-255 scale -- so there is no difference for software to find. Telling
+  a cream headboard from a cream duvet needs a person who knows what a bed
+  looks like.
+
+
+WHAT YOU NEED TO DO
+
+  For each bed, open regions/<name>.png alongside the stock photo and:
+
+  1. Paint the DUVET, PILLOWS and MATTRESS back to pure BLACK.
+     Only the upholstered frame should stay red -- headboard, footboard,
+     side rails, base, buttons.
+
+  2. Add any upholstery the mask MISSED, in pure red #ff0000.
+     Several beds only captured the footboard and lost the headboard.
+
+  3. Save as PNG. Never JPG -- JPG shifts flat colours and the red stops
+     matching, which silently breaks the whole pipeline.
+
+  Use a hard-edged brush. Pure #ff0000 and pure #000000, nothing between.
+  Anti-aliased or semi-transparent red will not register.
+
+
+QUALITY, BED BY BED -- READ THIS BEFORE BUDGETING TIME
+
+  GOOD, minor tidying only (about 20):
+    1 OAKLEY, 13 FLORIDA WINGBACK, 16 OXFORD WINGBACK, 17 NEW CASTLE,
+    21 DUBLIN, 23 DIOR, 24 PRESTIGE DIVAN, 28 ROME DIVAN, 29 WARSAW DIVAN,
+    31 OSLO DIVAN, 32 OXFORD WINGBACK OTTOMAN, 33 OPULENT PANEL,
+    37 VALENTINO LINEAR, 38 RIVERIA OTTOMAN, 9 OPULENCE WING,
+    22 PARISIENNE ARCH, 30 LAUSANNE DIVAN, 35 TORNADO WING PANEL,
+    36 BRAVO PANEL, 8 BUCKINGHAM LUXE
+
+  PARTIAL -- got some of the bed, headboard or a section is missing (about 10):
+    10 AURORA, 12 MALWA, 14 VERONE WINGBACK, 15 LUNAR ELEGANCE,
+    20 TORNADO, 25 MILAN DIVAN, 26 OTTAWA DIVAN, 27 BERLIN DIVAN,
+    3 LIANA, 5 ASCOT LUXURY
+
+  FAILED -- ignore the file, mask these from scratch (9):
+    2 BELLA, 4 SAVOY, 6 BELGRAVIA, 7 CHICAGO, 11 CHELSI, 18 BARCELONA,
+    19 ZARKON GOLD TRIM, 34 TOKYO OTTOMAN, 39 MARINA
+
+  The 9 failures are mostly wide room shots where the bed is small in frame
+  and something else dominates -- a feature wall, curtains, a rug. Nothing
+  about them is unfixable; they just need a human from the start.
+
+
+A NOTE ON RESOLUTION
+
+  These stock photos are between 223x277 and 421x492 pixels. That is fine for
+  grid cells of roughly 300px, which is what the existing Liana and Savoy
+  grids use. It is NOT enough for a large hero shot.
+
+  If you want full-size hero images, generate ONE high-resolution render per
+  bed first and mask that instead. Every colourway then comes off a single
+  identical source, which is what keeps a 12-cell grid looking consistent.
+  The existing Oakley and Bella sets were generated per colour, and the room
+  changes between them -- different chandelier, different nightstands,
+  different camera angle.
+
+
+REGENERATING THESE
+
+  python automask.py --in "<bed images folder>" --out masks --rects bed_rects.json
+
+  bed_rects.json holds a hand-set box around each bed. If a mask missed part
+  of a bed, widen that bed's box and re-run just that one:
+
+  python automask.py --in "<folder>" --out masks --rects bed_rects.json --only "4 SAVOY"
